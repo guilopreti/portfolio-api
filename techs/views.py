@@ -1,7 +1,7 @@
 from rest_framework import generics
+from utils.permissions import SuperUserPermission
 
 from techs.models import Technology
-from techs.permissions import SuperUserPermission
 
 from .serializers import TechSerializer
 

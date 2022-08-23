@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "rest_framework",
     "techs",
+    "frontend",
+    "backend",
+    "fullstack",
 ]
 
 MIDDLEWARE = [
