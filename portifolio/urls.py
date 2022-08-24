@@ -23,4 +23,5 @@ urlpatterns = [
     path("api/", include("techs.urls")),
     path("api/", include("frontend.urls")),
     path("api/", include("backend.urls")),
+    path("api/", include("fullstack.urls")),
 ]

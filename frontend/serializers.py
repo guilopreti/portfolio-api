@@ -27,14 +27,11 @@ class FrontendSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
 
-        techs = []
-        for tech in validated_data["techs"]:
-            techs.append(Technology.objects.get_or_create(name=tech["name"])[0])
-
-        del validated_data["techs"]
+        techs = validated_data.pop("techs")
 
         project = FrontEnd.objects.create(**validated_data)
 
-        project.techs.set(techs)
+        for tech in techs:
+            project.techs.add(Technology.objects.get_or_create(name=tech["name"])[0])
 
         return project
