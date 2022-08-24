@@ -22,4 +22,5 @@ urlpatterns = [
     path("login/", views.obtain_auth_token),
     path("api/", include("techs.urls")),
     path("api/", include("frontend.urls")),
+    path("api/", include("backend.urls")),
 ]
