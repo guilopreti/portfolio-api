@@ -59,3 +59,97 @@ class FullstackSerializer(serializers.ModelSerializer):
             )
 
         return project
+
+
+class DeleteTechsSerializer(serializers.ModelSerializer):
+    front_techs = TechSerializer(many=True, required=False)
+    back_techs = TechSerializer(many=True, required=False)
+    both_techs = TechSerializer(many=True, required=False)
+
+    class Meta:
+        model = FullStack
+        fields = [
+            "id",
+            "title",
+            "front_description",
+            "back_description",
+            "img_url",
+            "preview_url",
+            "front_code_url",
+            "back_code_url",
+            "front_techs",
+            "back_techs",
+            "both_techs",
+        ]
+        read_only_fields = [
+            "title",
+            "front_description",
+            "back_description",
+            "img_url",
+            "preview_url",
+            "front_code_url",
+            "back_code_url",
+        ]
+
+    def update(self, instance, validated_data):
+
+        if "front_techs" in validated_data.keys():
+            for tech in validated_data["front_techs"]:
+                instance.front_techs.remove(Technology.objects.get(name=tech["name"]))
+
+        if "back_techs" in validated_data.keys():
+            for tech in validated_data["back_techs"]:
+                instance.back_techs.remove(Technology.objects.get(name=tech["name"]))
+
+        if "both_techs" in validated_data.keys():
+            for tech in validated_data["both_techs"]:
+                instance.both_techs.remove(Technology.objects.get(name=tech["name"]))
+
+        return instance
+
+
+class AddTechsSerializer(serializers.ModelSerializer):
+    front_techs = TechSerializer(many=True, required=False)
+    back_techs = TechSerializer(many=True, required=False)
+    both_techs = TechSerializer(many=True, required=False)
+
+    class Meta:
+        model = FullStack
+        fields = [
+            "id",
+            "title",
+            "front_description",
+            "back_description",
+            "img_url",
+            "preview_url",
+            "front_code_url",
+            "back_code_url",
+            "front_techs",
+            "back_techs",
+            "both_techs",
+        ]
+        read_only_fields = [
+            "title",
+            "front_description",
+            "back_description",
+            "img_url",
+            "preview_url",
+            "front_code_url",
+            "back_code_url",
+        ]
+
+    def update(self, instance, validated_data):
+
+        if "front_techs" in validated_data.keys():
+            for tech in validated_data["front_techs"]:
+                instance.front_techs.add(Technology.objects.get(name=tech["name"]))
+
+        if "back_techs" in validated_data.keys():
+            for tech in validated_data["back_techs"]:
+                instance.back_techs.add(Technology.objects.get(name=tech["name"]))
+
+        if "both_techs" in validated_data.keys():
+            for tech in validated_data["both_techs"]:
+                instance.both_techs.add(Technology.objects.get(name=tech["name"]))
+
+        return instance
