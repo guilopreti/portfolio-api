@@ -13,6 +13,17 @@ class ListCreateView(generics.ListCreateAPIView):
     serializer_class = FrontendSerializer
 
 
+class ListByDateView(generics.ListAPIView):
+    permission_classes = [SuperUserPermission]
+
+    queryset = FrontEnd.objects.all()
+    serializer_class = FrontendSerializer
+
+    def get_queryset(self):
+
+        return self.queryset.order_by("-registration_date")
+
+
 class UpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [SuperUserPermission]
 
