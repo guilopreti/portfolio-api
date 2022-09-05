@@ -14,7 +14,6 @@ class ListCreateView(generics.ListCreateAPIView):
 
 
 class ListByDateView(generics.ListAPIView):
-    permission_classes = [SuperUserPermission]
 
     queryset = FrontEnd.objects.all()
     serializer_class = FrontendSerializer
