@@ -1,2 +1,6 @@
+name: "Railway Deploy"
+description: "Simple Action to Deploy Railway App using Railway CLI"
+inputs:
+  required: false
 runs:
   web: python manage.py runserver 0.0.0.0:$PORT
