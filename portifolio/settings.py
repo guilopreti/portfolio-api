@@ -37,7 +37,7 @@ ALLOWED_HOSTS = [
     "guilopreti-portfolio.herokuapp.com",
     "localhost",
     "127.0.0.1",
-    "bitter-bushes-production.up.railway.app/",
+    "guilopreti-portfolio-production.up.railway.app",
 ]
 
 
