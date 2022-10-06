@@ -12,4 +12,4 @@ WORKDIR /code
 
 COPY . /code/
 
-RUN python manage.py runserver 0.0.0.0:$PORT
+CMD [ "python manage.py runserver 0.0.0.0:$PORT" ] 
