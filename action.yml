@@ -1,6 +1,5 @@
-name: "Railway Deploy"
-description: "Simple Action to Deploy Railway App using Railway CLI"
-inputs:
-  required: false
-runs:
+build:
+  docker:
+    web: Dockerfile
+run:
   web: python manage.py runserver 0.0.0.0:$PORT
