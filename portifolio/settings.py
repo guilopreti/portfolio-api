@@ -33,7 +33,12 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["guilopreti-portfolio.herokuapp.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "guilopreti-portfolio.herokuapp.com",
+    "localhost",
+    "127.0.0.1",
+    "bitter-bushes-production.up.railway.app/",
+]
 
 
 # Application definition
