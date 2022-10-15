@@ -34,10 +34,9 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "guilopreti-portfolio.herokuapp.com",
     "localhost",
     "127.0.0.1",
-    "guilopreti-portfolio-production.up.railway.app",
+    os.environ.get("DEPLOPY_URL"),
 ]
 
 
