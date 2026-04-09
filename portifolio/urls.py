@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework.authtoken import views
 
+from portifolio.views import AllProjectsByDateView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("login/", views.obtain_auth_token),
+    path("api/all/newest/", AllProjectsByDateView.as_view()),
     path("api/", include("techs.urls")),
     path("api/", include("frontend.urls")),
     path("api/", include("backend.urls")),
