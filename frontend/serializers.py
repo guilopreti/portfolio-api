@@ -23,6 +23,7 @@ class FrontendSerializer(serializers.ModelSerializer):
             "preview_url",
             "code_url",
             "techs",
+            "registration_date",
         ]
 
     def create(self, validated_data):

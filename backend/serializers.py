@@ -15,7 +15,7 @@ class BackendSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BackEnd
-        fields = ["id", "title", "description", "code_url", "techs"]
+        fields = ["id", "title", "description", "code_url", "techs", "registration_date"]
 
     def create(self, validated_data):
 

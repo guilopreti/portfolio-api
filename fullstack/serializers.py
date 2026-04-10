@@ -29,6 +29,7 @@ class FullstackSerializer(serializers.ModelSerializer):
             "front_techs",
             "back_techs",
             "both_techs",
+            "registration_date",
         ]
 
     def create(self, validated_data):
