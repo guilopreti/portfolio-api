@@ -14,6 +14,7 @@ class FullstackSerializer(serializers.ModelSerializer):
     front_techs = TechSerializer(many=True)
     back_techs = TechSerializer(many=True)
     both_techs = TechSerializer(many=True, required=False)
+    type = serializers.SerializerMethodField()
 
     class Meta:
         model = FullStack
@@ -30,7 +31,11 @@ class FullstackSerializer(serializers.ModelSerializer):
             "back_techs",
             "both_techs",
             "registration_date",
+            "type",
         ]
+
+    def get_type(self, obj):
+        return "fullstack"
 
     def create(self, validated_data):
 

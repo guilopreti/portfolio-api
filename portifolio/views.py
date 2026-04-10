@@ -25,15 +25,6 @@ class AllProjectsByDateView(APIView):
         back_data = BackendSerializer(back_queryset, many=True).data
         full_data = FullstackSerializer(full_queryset, many=True).data
 
-        for item in front_data:
-            item["type"] = "frontend"
-        
-        for item in back_data:
-            item["type"] = "backend"
-            
-        for item in full_data:
-            item["type"] = "fullstack"
-
         all_projects = front_data + back_data + full_data
 
         all_projects.sort(key=lambda x: x.get("registration_date", ""), reverse=True)

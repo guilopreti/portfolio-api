@@ -12,6 +12,7 @@ class TechSerializer(serializers.ModelSerializer):
 
 class FrontendSerializer(serializers.ModelSerializer):
     techs = TechSerializer(many=True)
+    type = serializers.SerializerMethodField()
 
     class Meta:
         model = FrontEnd
@@ -24,7 +25,11 @@ class FrontendSerializer(serializers.ModelSerializer):
             "code_url",
             "techs",
             "registration_date",
+            "type",
         ]
+
+    def get_type(self, obj):
+        return "frontend"
 
     def create(self, validated_data):
 

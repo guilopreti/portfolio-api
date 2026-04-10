@@ -12,10 +12,14 @@ class TechSerializer(serializers.ModelSerializer):
 
 class BackendSerializer(serializers.ModelSerializer):
     techs = TechSerializer(many=True)
+    type = serializers.SerializerMethodField()
 
     class Meta:
         model = BackEnd
-        fields = ["id", "title", "description", "code_url", "techs", "registration_date"]
+        fields = ["id", "title", "description", "code_url", "techs", "registration_date", "type"]
+
+    def get_type(self, obj):
+        return "backend"
 
     def create(self, validated_data):
 
