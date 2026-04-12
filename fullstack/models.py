@@ -15,7 +15,7 @@ class FullStack(models.Model):
     back_description = models.TextField(max_length=1000, null=False)
 
     img_url = models.CharField(max_length=255, null=False)
-    preview_url = models.CharField(max_length=255, null=False)
+    preview_url = models.CharField(max_length=255, null=True, blank=True)
 
     front_code_url = models.CharField(max_length=255, null=False)
     back_code_url = models.CharField(max_length=255, null=False)

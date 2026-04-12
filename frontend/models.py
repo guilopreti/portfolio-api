@@ -10,7 +10,7 @@ class FrontEnd(models.Model):
     title = models.CharField(max_length=100, null=False)
     description = models.TextField(max_length=1000, null=False)
     img_url = models.CharField(max_length=255, null=False)
-    preview_url = models.CharField(max_length=255, null=False)
+    preview_url = models.CharField(max_length=255, null=True, blank=True)
     code_url = models.CharField(max_length=255, null=False)
     registration_date = models.DateTimeField(default=timezone.now)
     techs = models.ManyToManyField("techs.Technology", related_name="front_projects")
